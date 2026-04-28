@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>NEXUS-INDIA | Sovereign AI Kiosk</title>
 
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css"/>
+
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
     <script type="importmap">{"imports":{"three":"https://unpkg.com/three@0.160.0/build/three.module.js"}}</script>
@@ -31,6 +33,21 @@
             cursor: none;
             touch-action: none;
         }
+        <div id="map" style="height: 500px;"></div>
+
+        <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+        <script>
+          var map = L.map('map').setView([22.5726, 88.3639], 13);
+        
+          L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '© OpenStreetMap'
+          }).addTo(map);
+        
+          L.marker([22.5726, 88.3639]).addTo(map)
+            .bindPopup('Welcome to Nexus!')
+            .openPopup();
+        </script>
 
         #background-canvas {
             position: absolute;
